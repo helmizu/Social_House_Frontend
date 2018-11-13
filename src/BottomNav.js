@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
-import { createBottomTabNavigator } from 'react-navigation';
-import Home from './components/Home';
-import Thread from './components/Thread';
-import Community from './components/Community';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+//main
+import Home from './components/home/Home';
+import Thread from './components/thread/Thread';
+import Community from './components/community/Community';
+
+//second
+import Dashboard from './components/home/Dashboard';
+
+//icon
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+const HomeStack = createStackNavigator({
+    Home: { screen: Home },
+    Dashboard: { screen: Dashboard },
+  });
+  
 
 const BottomNav = createBottomTabNavigator(
     {
-        Home: Home,
+        Home: HomeStack,
         Thread: Thread,
         Community: Community
     }, {
@@ -23,9 +35,7 @@ const BottomNav = createBottomTabNavigator(
                 else if (routeName === 'Community') {
                     iconName = `people`;
                 }
-
-                // You can return any component that you like here! We usually use an
-                // icon component from react-native-vector-icons
+                
                 return <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
             },
         }),
