@@ -1,13 +1,17 @@
+import { EMAIL_CHANGED, PASSWORD_CHANGED } from '../types';
+
 const initialState = {
-    isLoggedIn : false
+    email: '',
+    password: ''
 }
 
 export default (state = initialState, action) => {
-switch (action.type) {
-    case 'LOGOUT_USER':
-        return {...state, isLoggedIn: true}
-
-    default:
-        return state
-}
+    switch (action.type) {
+        case EMAIL_CHANGED:
+            return { ...state, email: action.payload }
+        case PASSWORD_CHANGED:
+            return { ...state, password: action.payload }
+        default:
+            return state
+    }
 }

@@ -6,8 +6,6 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './redux/reducers';
 
 //router
-import SignedIn from './SignedInRouter';
-import SignedOut from './SignedOutRouter';
 import Root from './Root';
 
 class App extends Component {

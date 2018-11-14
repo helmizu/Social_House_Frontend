@@ -6,7 +6,6 @@ class Home extends Component {
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>{this.props.isLoggedIn}</Text>
                 <Button
                     title="Go to Details"
                     onPress={() => this.props.navigation.navigate('Dashboard')}

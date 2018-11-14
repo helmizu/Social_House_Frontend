@@ -4,8 +4,7 @@ import {
   StyleSheet,
   View,
   ActivityIndicator,
-  StatusBar,
-  Text
+  StatusBar
 } from 'react-native';
 
 class AuthLoadingScreen extends React.Component {
