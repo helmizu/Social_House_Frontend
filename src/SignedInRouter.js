@@ -14,10 +14,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const HomeStack = createStackNavigator({
     Home: { screen: Home },
     Dashboard: { screen: Dashboard },
-  });
-  
+});
 
-const BottomNav = createBottomTabNavigator(
+const SignedIn = createBottomTabNavigator(
     {
         Home: HomeStack,
         Thread: Thread,
@@ -35,7 +34,7 @@ const BottomNav = createBottomTabNavigator(
                 else if (routeName === 'Community') {
                     iconName = `people`;
                 }
-                
+
                 return <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
             },
         }),
@@ -46,4 +45,4 @@ const BottomNav = createBottomTabNavigator(
     }
 );
 
-export default BottomNav;
+export default SignedIn

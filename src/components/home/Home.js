@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button, View, Text, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 
 class Home extends Component {
@@ -11,8 +11,17 @@ class Home extends Component {
                     title="Go to Details"
                     onPress={() => this.props.navigation.navigate('Dashboard')}
                 />
+                 <Button
+                    title="Logout"
+                    onPress={this._signOutAsync}
+                />
             </View>
         );
+    }
+
+    _signOutAsync = async () => {
+        await AsyncStorage.clear();
+        this.props.navigation.navigate('SignedOut');
     }
 }
 
