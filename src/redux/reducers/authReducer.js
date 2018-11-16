@@ -1,4 +1,5 @@
-import { EMAIL_CHANGED, PASSWORD_CHANGED } from '../types';
+import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_SUCCESS } from '../types';
+import {AsyncStorage} from 'react-native';
 
 const initialState = {
     email: '',
@@ -11,6 +12,8 @@ export default (state = initialState, action) => {
             return { ...state, email: action.payload }
         case PASSWORD_CHANGED:
             return { ...state, password: action.payload }
+        case LOGIN_SUCCESS:
+            return {...state}
         default:
             return state
     }

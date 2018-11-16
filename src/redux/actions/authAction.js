@@ -1,4 +1,5 @@
-import {EMAIL_CHANGED, PASSWORD_CHANGED} from '../types';
+import {EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_SUCCESS} from '../types';
+import axios from 'axios';
 
 export const emailChanged = email => {
     return{
@@ -13,3 +14,14 @@ export const passwordChanged = password => {
         payload : password,
     }
 }
+
+export const loginUser = (email,password, nav) => dispatch => {
+    const dataUser = {email,password}
+    axios.post(`http://192.168.1.18:3000/users/login`, dataUser )
+    .then(res => {
+        dispatch({type : LOGIN_SUCCESS, payload:res})
+        nav('SignedIn')
+        console.log(res)
+    })
+    .catch(err => console.log(err))
+}; 
