@@ -1,9 +1,10 @@
 import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_SUCCESS } from '../types';
-import {AsyncStorage} from 'react-native';
+import { AsyncStorage } from 'react-native';
 
 const initialState = {
     email: '',
-    password: ''
+    password: '',
+    token : null
 }
 
 export default (state = initialState, action) => {
@@ -13,7 +14,10 @@ export default (state = initialState, action) => {
         case PASSWORD_CHANGED:
             return { ...state, password: action.payload }
         case LOGIN_SUCCESS:
-            return {...state}
+            if (action.payload.data.token) {
+                AsyncStorage.setItem('token', action.payload.data.token);
+            }
+            return { ...state, token : action.payload.data.token}
         default:
             return state
     }

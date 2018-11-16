@@ -20,7 +20,7 @@ export const loginUser = (email,password, nav) => dispatch => {
     axios.post(`http://192.168.1.18:3000/users/login`, dataUser )
     .then(res => {
         dispatch({type : LOGIN_SUCCESS, payload:res})
-        nav('SignedIn')
+        nav('AuthLoading')
         console.log(res)
     })
     .catch(err => console.log(err))
