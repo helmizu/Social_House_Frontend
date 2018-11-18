@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Image, View, Text, AsyncStorage, StyleSheet, TouchableOpacity} from 'react-native';
+import { Button, Image, View, Text, AsyncStorage, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import profile from '../../assets/27.png'
+import profile from '../../assets/27.png';
+import { Post } from '../Common';
 
 class Home extends Component {
     constructor(props) {
@@ -13,24 +14,25 @@ class Home extends Component {
     }
 
     render() {
+        const now = new Date().toLocaleTimeString()
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <View style={styles.profileContainer}>
-                    <View style={{marginTop: 24, alignItems: 'center'}}>
+                    <View style={{ marginTop: 24, alignItems: 'center' }}>
                         <Image style={styles.img} source={profile} />
                     </View>
-                    <View style={{alignItems: 'center',marginLeft: 64, marginRight: 64}}>
-                        <Text style={{textAlign: 'center', fontWeight:'bold', fontSize: 16, color: '#656766'}}>Muhammad Ilham Fajar</Text>
+                    <View style={{ alignItems: 'center', marginLeft: 64, marginRight: 64 }}>
+                        <Text style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 16, color: '#656766' }}>Muhammad Ilham Fajar</Text>
                     </View>
-                    <View style={{alignItems: 'center',marginLeft: 64, marginRight: 64, marginTop:8, marginBottom: 8}}>
-                        <Text style={{textAlign: 'center', fontSize: 14, color: '#B4B4B4'}}>@muh_ilhamfajar</Text>
+                    <View style={{ alignItems: 'center', marginLeft: 64, marginRight: 64, marginTop: 8, marginBottom: 8 }}>
+                        <Text style={{ textAlign: 'center', fontSize: 14, color: '#B4B4B4' }}>@muh_ilhamfajar</Text>
                     </View>
-                    <View style={{alignItems: 'center',marginLeft: 64, marginRight: 64}}>
-                        <Text style={{textAlign: 'center'}}>lorem ipsum lorep ipsum lorem ipsum lorep ipsum lorem ipsum lorep ipsum lorem ipsum lorep </Text>
+                    <View style={{ alignItems: 'center', marginLeft: 64, marginRight: 64 }}>
+                        <Text style={{ textAlign: 'center' }}>lorem ipsum lorep ipsum lorem ipsum lorep ipsum lorem ipsum lorep ipsum lorem ipsum lorep </Text>
                     </View>
-                    <View style={{marginTop: 16, alignItems: 'center'}}>
-                        <TouchableOpacity style={{borderRadius: 30, width: 100,borderWidth: 2, borderColor: '#D4D4D4'}}>
-                            <Text style={{textAlign:'center', padding: 8}}>Edit Profile</Text>
+                    <View style={{ marginTop: 16, alignItems: 'center', marginBottom: 36 }}>
+                        <TouchableOpacity style={{ borderRadius: 30, width: 100, borderWidth: 2, borderColor: '#D4D4D4' }}>
+                            <Text style={{ textAlign: 'center', padding: 8 }}>Edit Profile</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -71,9 +73,22 @@ class Home extends Component {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <Text style={{marginTop: 32}}>{this.state.navigation}</Text>
+                    {this.state.navigation == 'thread'
+                        ?
+                        <View>
+                            <Post profile={profile} name="Helmi" date={now} post="Content post" navigation={this.props.navigation} />
+                            <Post profile={profile} name="Helmi" date={now} post="Content post" navigation={this.props.navigation} />
+                            <Post profile={profile} name="Helmi" date={now} post="Content post" navigation={this.props.navigation} />
+                        </View>
+                        :
+                        <View style={{marginTop:24, paddingLeft:36, paddingRight:36, flexDirection:'row', flexWrap: 'wrap'}}>
+                            <View style={{width: 64, height:64, backgroundColor:'#C4C4C4', borderRadius:4, marginRight: 32, marginBottom: 32}}></View>
+                            <View style={{width: 64, height:64, backgroundColor:'#C4C4C4', borderRadius:4, marginRight: 32, marginBottom: 32}}></View>
+                        </View>
+                    }
+
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 
@@ -85,7 +100,8 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 8
+        flex: 8,
+        backgroundColor: '#fff'
     },
 
     //profile
@@ -97,14 +113,14 @@ const styles = StyleSheet.create({
     img: {
         width: 100,
         height: 100,
-        borderRadius:100
+        borderRadius: 100
     },
     viewContainer: {
         flex: 2,
         flexDirection: 'column'
     },
     nav: {
-        flex: 1/0,
+        flex: 1 / 0,
         flexDirection: 'row'
     },
     buttonNav: {
