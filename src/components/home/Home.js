@@ -6,6 +6,10 @@ import coin from '../../assets/images/coin.png';
 import { Post } from '../Common';
 
 class Home extends Component {
+    static navigationOptions = {
+        title: 'Profil',
+    };
+
     constructor(props) {
         super(props)
 
