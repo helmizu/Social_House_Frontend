@@ -50,7 +50,7 @@ export class Dashboard extends Component {
         <View style={styles.ImageContainer}>
           <Image
             style={styles.ImageItems}
-            source={require('../assets/images/care.png')}
+            source={require('../../assets/images/care.png')}
           />
           <Text style={styles.Condition}>
             Kawasan Bebas Asap Rokok
