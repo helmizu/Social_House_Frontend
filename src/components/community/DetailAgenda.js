@@ -9,7 +9,6 @@ const window = Dimensions.get('window')
 class DetailAgenda extends Component {
   static navigationOptions = {
     header: null,
-    tabBarVisible: false
   };
   
   constructor() {
