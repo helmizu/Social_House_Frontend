@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Image, View, Text, AsyncStorage, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { Button, Image, View, Text, AsyncStorage, StyleSheet, TouchableOpacity, ScrollView, Dimensions, Modal } from 'react-native';
 import { connect } from 'react-redux';
 import profile from '../../assets/27.png';
 import coin from '../../assets/images/coin.png';
@@ -10,12 +10,19 @@ class Home extends Component {
         super(props)
 
         this.state = {
-            navigation: 'thread'
+            navigation: 'thread',
+            modal: true
         }
     }
 
+    setModalVisible(visible) {
+        this.setState({ modalVisible: visible });
+    }
+
     render() {
-        const now = new Date().toLocaleTimeString()
+        const now = new Date().toLocaleTimeString();
+        const dimenH = Dimensions.get('screen').height;
+        const dimenW = Dimensions.get('window').width;
         return (
             <ScrollView style={styles.container}>
                 <View style={styles.profileContainer}>
@@ -90,27 +97,27 @@ class Home extends Component {
                                 </TouchableOpacity>
                             </View>
                             :
-                            <View style={{paddingHorizontal:24, marginTop: 24}}>
-                                <View style={{flexDirection:'row', marginBottom: 36}}>
+                            <View style={{ paddingHorizontal: 24, marginTop: 24 }}>
+                                <View style={{ flexDirection: 'row', marginBottom: 36 }}>
                                     <Image source={coin} />
-                                    <View style={{paddingRight:24, marginLeft: 8}}>
-                                        <Text style={{fontWeight: '600'}}>Penabung Ulung</Text>
-                                        <Text>Kamu berhasil menabung sejumlah Rp. 500.000</Text>
-                                    </View>
-                                </View>
-                                
-                                <View style={{flexDirection:'row', marginBottom: 36}}>
-                                    <Image source={coin} />
-                                    <View style={{paddingRight:24, marginLeft: 8}}>
-                                        <Text style={{fontWeight: '600'}}>Penabung Ulung</Text>
+                                    <View style={{ paddingRight: 24, marginLeft: 8 }}>
+                                        <Text style={{ fontWeight: '600' }}>Penabung Ulung</Text>
                                         <Text>Kamu berhasil menabung sejumlah Rp. 500.000</Text>
                                     </View>
                                 </View>
 
-                                <View style={{flexDirection:'row', marginBottom: 36}}>
+                                <View style={{ flexDirection: 'row', marginBottom: 36 }}>
                                     <Image source={coin} />
-                                    <View style={{paddingRight:24, marginLeft: 8}}>
-                                        <Text style={{fontWeight: '600'}}>Penabung Ulung</Text>
+                                    <View style={{ paddingRight: 24, marginLeft: 8 }}>
+                                        <Text style={{ fontWeight: '600' }}>Penabung Ulung</Text>
+                                        <Text>Kamu berhasil menabung sejumlah Rp. 500.000</Text>
+                                    </View>
+                                </View>
+
+                                <View style={{ flexDirection: 'row', marginBottom: 36 }}>
+                                    <Image source={coin} />
+                                    <View style={{ paddingRight: 24, marginLeft: 8 }}>
+                                        <Text style={{ fontWeight: '600' }}>Penabung Ulung</Text>
                                         <Text>Kamu berhasil menabung sejumlah Rp. 500.000</Text>
                                     </View>
                                 </View>
@@ -123,6 +130,36 @@ class Home extends Component {
                     }
 
                 </View>
+
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => {
+                        Alert.alert('Modal has been closed.');
+                    }}>
+
+                    <View style={{
+                        width: dimenW, height: 250, backgroundColor: '#fff', position: 'absolute', bottom: 0, borderTopLeftRadius: 10,
+                        borderTopRightRadius: 10
+                    }}>
+                        <View style={{
+                            backgroundColor: '#5EB4F5',
+                            height: 50,
+                            borderTopLeftRadius: 10,
+                            borderTopRightRadius: 10,
+                            paddingVertical: 12,
+                            paddingHorizontal: 24,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between'
+                        }}>
+                            <Text style={{ color: '#fff', fontWeight: '600', fontSize: 14 }}>Program Tersedia</Text>
+                            <Text style={{ color: '#fff', fontWeight: '600', fontSize: 20 }} onPress={() => {
+                                this.setModalVisible(!this.state.modalVisible);
+                            }} >X</Text>
+                        </View>
+                    </View>
+                </Modal>
             </ScrollView>
         );
     }
