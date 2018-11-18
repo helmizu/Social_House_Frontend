@@ -15,12 +15,12 @@ class Home extends Component {
 
         this.state = {
             navigation: 'thread',
-            modal: true
+            modal: false
         }
     }
 
     setModalVisible(visible) {
-        this.setState({ modalVisible: visible });
+        this.setState({ modal: visible });
     }
 
     render() {
@@ -65,7 +65,7 @@ class Home extends Component {
                                 style={this.state.navigation == 'thread' ? styles.buttonStyleActive : styles.buttonStyle}
                                 onPress={() => this.setState({ navigation: 'thread' })}
                             >
-                                <Text style={styles.buttonText}>thread</Text>
+                                <Text style={styles.buttonText}>Thread</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.buttonNav} >
@@ -73,7 +73,7 @@ class Home extends Component {
                                 style={this.state.navigation == 'dashboard' ? styles.buttonStyleActive : styles.buttonStyle}
                                 onPress={() => this.setState({ navigation: 'dashboard' })}
                             >
-                                <Text style={styles.buttonText}>dashboard</Text>
+                                <Text style={styles.buttonText}>Dashboard</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.buttonNav} >
@@ -96,7 +96,7 @@ class Home extends Component {
                             ?
                             <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 32 }}>
                                 <Text style={{ textAlign: 'center' }}>Maaf, anda belum memiliki program apapun</Text>
-                                <TouchableOpacity style={{ backgroundColor: '#42A7F3', marginTop: 24, paddingVertical: 12, borderRadius: 4, minWidth: 328, alignItems: 'center' }}>
+                                <TouchableOpacity style={{ backgroundColor: '#42A7F3', marginTop: 24, paddingVertical: 12, borderRadius: 4, minWidth: 328, alignItems: 'center' }} onPress={()=>{this.setModalVisible(!this.state.modal)}}>
                                     <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 18 }}>Ikut Program</Text>
                                 </TouchableOpacity>
                             </View>
@@ -138,13 +138,13 @@ class Home extends Component {
                 <Modal
                     animationType="slide"
                     transparent={true}
-                    visible={this.state.modalVisible}
+                    visible={this.state.modal}
                     onRequestClose={() => {
                         Alert.alert('Modal has been closed.');
                     }}>
 
                     <View style={{
-                        width: dimenW, height: 250, backgroundColor: '#fff', position: 'absolute', bottom: 0, borderTopLeftRadius: 10,
+                        width: dimenW, minHeight: 200, backgroundColor: '#fff', position: 'absolute', bottom: 0, borderTopLeftRadius: 10,
                         borderTopRightRadius: 10
                     }}>
                         <View style={{
@@ -157,10 +157,78 @@ class Home extends Component {
                             flexDirection: 'row',
                             justifyContent: 'space-between'
                         }}>
-                            <Text style={{ color: '#fff', fontWeight: '600', fontSize: 14 }}>Program Tersedia</Text>
-                            <Text style={{ color: '#fff', fontWeight: '600', fontSize: 20 }} onPress={() => {
-                                this.setModalVisible(!this.state.modalVisible);
+                            <Text style={{ color: '#fff', fontWeight: '600', fontSize: 16 }}>Program Tersedia</Text>
+                            <Text style={{ color: '#fff', fontWeight: '600', fontSize: 16 }} onPress={() => {
+                                this.setModalVisible(!this.state.modal);
                             }} >X</Text>
+                        </View>
+                        <View style={{
+                            flex: 1,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            flexWrap: 'wrap',
+                            margin: 8
+                        }}>
+                            <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                                <View style={{
+                                    borderRadius : 8,
+                                    backgroundColor : '#C4C4C4',
+                                    borderWidth : 2,
+                                    borderColor : '#C4C4C4',
+                                    height : 75,
+                                    width : 75,
+                                    margin : 8,
+                                }}> 
+                                </View>
+                                <Text style={{textAlign: 'center'}}>
+                                    Anti Rokok
+                                </Text>
+                            </View>
+                            <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                                <View style={{
+                                    borderRadius : 8,
+                                    backgroundColor : '#C4C4C4',
+                                    borderWidth : 2,
+                                    borderColor : '#C4C4C4',
+                                    height : 75,
+                                    width : 75,
+                                    margin : 8,
+                                }}> 
+                                </View>
+                                <Text style={{textAlign: 'center'}}>
+                                    Akan Datang
+                                </Text>
+                            </View>
+                            <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                                <View style={{
+                                    borderRadius : 8,
+                                    backgroundColor : '#C4C4C4',
+                                    borderWidth : 2,
+                                    borderColor : '#C4C4C4',
+                                    height : 75,
+                                    width : 75,
+                                    margin : 8,
+                                }}> 
+                                </View>
+                                <Text style={{textAlign: 'center'}}>
+                                    Akan Datang
+                                </Text>
+                            </View>
+                            <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                                <View style={{
+                                    borderRadius : 8,
+                                    backgroundColor : '#C4C4C4',
+                                    borderWidth : 2,
+                                    borderColor : '#C4C4C4',
+                                    height : 75,
+                                    width : 75,
+                                    margin : 8,
+                                }}> 
+                                </View>
+                                <Text style={{textAlign: 'center'}}>
+                                    Akan Datang
+                                </Text>
+                            </View>
                         </View>
                     </View>
                 </Modal>
