@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 //main
 import Home from './components/home/Home';
@@ -7,7 +7,7 @@ import Community from './components/community/Community';
 
 //second
 import Dashboard from './components/home/Dashboard';
-
+import DetailAgenda from './components/community/DetailAgenda';
 //icon
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -16,11 +16,31 @@ const HomeStack = createStackNavigator({
     Dashboard: { screen: Dashboard },
 });
 
+const ThreadStack = createStackNavigator({
+    Thread: { screen: Thread }
+})
+
+const CommunityStack = createStackNavigator({
+    Community: { screen: Community },
+    DetailAgenda : { screen : DetailAgenda }
+})
+
+CommunityStack.navigationOptions = ({ navigation }) => {
+    let { routeName } = navigation.state.routes[navigation.state.index];
+    let navigationOptions = {};
+  
+    if (routeName === 'DetailAgenda') {
+      navigationOptions.tabBarVisible = false;
+    }
+  
+    return navigationOptions;
+  };
+
 const SignedIn = createBottomTabNavigator(
     {
         Home: HomeStack,
-        Thread: Thread,
-        Community: Community
+        Thread: ThreadStack,
+        Community: CommunityStack
     }, {
         navigationOptions: ({ navigation }) => ({
             tabBarIcon: ({ focused, horizontal, tintColor }) => {

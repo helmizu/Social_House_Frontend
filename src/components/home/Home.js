@@ -5,6 +5,10 @@ import profile from '../../assets/27.png';
 import { Post } from '../Common';
 
 class Home extends Component {
+    static navigationOptions = {
+        title: 'Profil',
+    };
+
     constructor(props) {
         super(props)
 
