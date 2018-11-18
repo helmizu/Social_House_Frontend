@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Image, View, Text, AsyncStorage, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import profile from '../../assets/27.png';
+import coin from '../../assets/images/coin.png';
 import { Post } from '../Common';
 
 class Home extends Component {
@@ -80,11 +81,45 @@ class Home extends Component {
                             <Post profile={profile} name="Helmi" date={now} post="Content post" navigation={this.props.navigation} />
                             <Post profile={profile} name="Helmi" date={now} post="Content post" navigation={this.props.navigation} />
                         </View>
-                        :
-                        <View style={{marginTop:24, paddingLeft:36, paddingRight:36, flexDirection:'row', flexWrap: 'wrap'}}>
-                            <View style={{width: 64, height:64, backgroundColor:'#C4C4C4', borderRadius:4, marginRight: 32, marginBottom: 32}}></View>
-                            <View style={{width: 64, height:64, backgroundColor:'#C4C4C4', borderRadius:4, marginRight: 32, marginBottom: 32}}></View>
-                        </View>
+                        : this.state.navigation == 'dashboard'
+                            ?
+                            <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 32 }}>
+                                <Text style={{ textAlign: 'center' }}>Maaf, anda belum memiliki program apapun</Text>
+                                <TouchableOpacity style={{ backgroundColor: '#42A7F3', marginTop: 24, paddingVertical: 12, borderRadius: 4, minWidth: 328, alignItems: 'center' }}>
+                                    <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 18 }}>Ikut Program</Text>
+                                </TouchableOpacity>
+                            </View>
+                            :
+                            <View style={{paddingHorizontal:24, marginTop: 24}}>
+                                <View style={{flexDirection:'row', marginBottom: 36}}>
+                                    <Image source={coin} />
+                                    <View style={{paddingRight:24, marginLeft: 8}}>
+                                        <Text style={{fontWeight: '600'}}>Penabung Ulung</Text>
+                                        <Text>Kamu berhasil menabung sejumlah Rp. 500.000</Text>
+                                    </View>
+                                </View>
+                                
+                                <View style={{flexDirection:'row', marginBottom: 36}}>
+                                    <Image source={coin} />
+                                    <View style={{paddingRight:24, marginLeft: 8}}>
+                                        <Text style={{fontWeight: '600'}}>Penabung Ulung</Text>
+                                        <Text>Kamu berhasil menabung sejumlah Rp. 500.000</Text>
+                                    </View>
+                                </View>
+
+                                <View style={{flexDirection:'row', marginBottom: 36}}>
+                                    <Image source={coin} />
+                                    <View style={{paddingRight:24, marginLeft: 8}}>
+                                        <Text style={{fontWeight: '600'}}>Penabung Ulung</Text>
+                                        <Text>Kamu berhasil menabung sejumlah Rp. 500.000</Text>
+                                    </View>
+                                </View>
+                            </View>
+                        // <View style={{marginTop:24, paddingLeft:36, paddingRight:36, flexDirection:'row', flexWrap: 'wrap'}}>
+                        //     <View style={{width: 64, height:64, backgroundColor:'#C4C4C4', borderRadius:4, marginRight: 32, marginBottom: 32}}></View>
+                        //     <View style={{width: 64, height:64, backgroundColor:'#C4C4C4', borderRadius:4, marginRight: 32, marginBottom: 32}}></View>
+                        // </View>
+
                     }
 
                 </View>
