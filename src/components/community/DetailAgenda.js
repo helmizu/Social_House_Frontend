@@ -114,7 +114,9 @@ class DetailAgenda extends Component {
         :
         (
             <ScrollView style={styles.ChatContainer}>
-            
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Join and see more!!!</Text>
+            </View>
             </ScrollView>
         )
         }

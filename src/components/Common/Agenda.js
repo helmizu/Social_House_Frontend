@@ -47,7 +47,7 @@ export default class Agenda extends Component {
                   flexDirection: 'column'
                 }}>
                   <Text style={styles.Thumbnail}>
-                    Lokasi
+                    Location
                   </Text>
                   <Text style={{ fontWeight: '500' }}>
                     {this.props.agenda.location}
@@ -62,7 +62,7 @@ export default class Agenda extends Component {
                           'Yakin ingin bergabung?',
                           '',
                           [
-                            {text: 'Tidak', onPress: () => {}, style: 'cancel'},
+                            {text: 'Cancel', onPress: () => {}, style: 'cancel'},
                             {text: 'Join', onPress: () => {this.props.navigation.navigate('Home')}},
                           ]
                         )
