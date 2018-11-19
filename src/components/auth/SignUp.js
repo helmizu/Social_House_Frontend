@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { Container, Button, Content, Form, Item, Input, Label } from 'native-base';
 
 const dimenW = Dimensions.get("window").width
