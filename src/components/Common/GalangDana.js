@@ -13,8 +13,8 @@ class GalangDana extends Component {
         <View style={{flex:1}}>
             <View style={{
                 height: 150,
-                borderTopLeftRadius: 16,
-                borderTopRightRadius: 16,
+                borderTopLeftRadius: 8,
+                borderTopRightRadius: 8,
                 backgroundColor: '#C4C4C4',
                 borderWidth: 1,
                 borderColor: '#C4C4C4'
@@ -26,8 +26,8 @@ class GalangDana extends Component {
                 flexDirection: 'column',
                 minHeight: 150,
                 backgroundColor: '#FFF',
-                borderBottomLeftRadius: 16,
-                borderBottomRightRadius: 16,
+                borderBottomLeftRadius: 8,
+                borderBottomRightRadius: 8,
                 borderWidth: 1,
                 borderColor: '#C4C4C4'
             }}>
