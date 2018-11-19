@@ -10,7 +10,7 @@ const agenda = {
   title : "Olahraga Basket",
   location : "Lapangan Rampal",
   time : "18:20",
-  participants : ['lasdjasldjas', 'alsdasdjasdj', 'asidlasflajs']
+  participants : ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']
 }
 
 export class Community extends Component {

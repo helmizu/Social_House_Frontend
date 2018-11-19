@@ -7,9 +7,6 @@ import { Chat, Photo } from '../Common'
 const window = Dimensions.get('window')
 
 class DetailAgenda extends Component {
-  static navigationOptions = {
-    header: null,
-  };
   
   constructor() {
       super()
@@ -211,7 +208,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     backgroundColor: '#fff',
-    paddingTop: 8,
     flex: 1
   },
   InfoContainer: {
