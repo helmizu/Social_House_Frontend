@@ -43,7 +43,7 @@ class Home extends Component {
                         <Text style={{ textAlign: 'center' }}>lorem ipsum lorep ipsum lorem ipsum lorep ipsum lorem ipsum lorep ipsum lorem ipsum lorep </Text>
                     </View>
                     <View style={{ marginTop: 16, alignItems: 'center', marginBottom: 36 }}>
-                        <TouchableOpacity style={{ borderRadius: 30, width: 100, borderWidth: 2, borderColor: '#D4D4D4' }}>
+                        <TouchableOpacity onPress={this._signOutAsync} style={{ borderRadius: 30, width: 100, borderWidth: 2, borderColor: '#D4D4D4' }}>
                             <Text style={{ textAlign: 'center', padding: 8 }}>Edit Profile</Text>
                         </TouchableOpacity>
                     </View>

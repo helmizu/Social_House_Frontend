@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Button, Content, Form, Item, Input, Label } from 'native-base';
-
 //action
 import {emailChanged, passwordChanged, loginUser} from '../../redux/actions/authAction';
 
