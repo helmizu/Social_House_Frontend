@@ -8,6 +8,8 @@ import Community from './components/community/Community';
 //second
 import Dashboard from './components/home/Dashboard';
 import DetailAgenda from './components/community/DetailAgenda';
+import AddThread from './components/thread/AddThread';
+
 //icon
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -17,7 +19,8 @@ const HomeStack = createStackNavigator({
 });
 
 const ThreadStack = createStackNavigator({
-    Thread: { screen: Thread }
+    Thread: { screen: Thread },
+    AddThread : { screen : AddThread }
 })
 
 const CommunityStack = createStackNavigator({
@@ -34,8 +37,18 @@ CommunityStack.navigationOptions = ({ navigation }) => {
     }
   
     return navigationOptions;
-  };
+};
 
+ThreadStack.navigationOptions = ({ navigation }) => {
+    let { routeName } = navigation.state.routes[navigation.state.index];
+    let navigationOptions = {};
+  
+    if (routeName === 'AddThread') {
+      navigationOptions.tabBarVisible = false;
+    }
+  
+    return navigationOptions;
+};
 const SignedIn = createBottomTabNavigator(
     {
         Home: HomeStack,

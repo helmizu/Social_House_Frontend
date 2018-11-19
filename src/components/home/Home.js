@@ -88,9 +88,9 @@ class Home extends Component {
                     {this.state.navigation == 'thread'
                         ?
                         <View>
-                            <Post profile={profile} name="Helmi" date={now} post="Content post" navigation={this.props.navigation} />
-                            <Post profile={profile} name="Helmi" date={now} post="Content post" navigation={this.props.navigation} />
-                            <Post profile={profile} name="Helmi" date={now} post="Content post" navigation={this.props.navigation} />
+                            <Post profile={profile} name="Muhammad Ilham Fajar" date={now} post="Post ke 3" navigation={this.props.navigation} />
+                            <Post profile={profile} name="Muhammad Ilham Fajar" date={now} post="Post ke 2" navigation={this.props.navigation} />
+                            <Post profile={profile} name="Muhammad Ilham Fajar" date={now} post="Post ke 1" navigation={this.props.navigation} />
                         </View>
                         : this.state.navigation == 'dashboard'
                             ?

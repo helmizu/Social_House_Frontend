@@ -50,17 +50,16 @@ export class Community extends Component {
             {this.state.navigation === 'meetup' ? 
             (
                 <ScrollView style={styles.ContentContainer}>
-                    <Agenda profile={profil} name="Helmi" date={now} agenda={agenda} navigation={this.props.navigation}/>
-                    <Agenda profile={profil} name="Helmi Zulfikar S" date={now} agenda={agenda} navigation={this.props.navigation}/>
-                    <Agenda profile={profil} name="Helmi" date={now} agenda={agenda} navigation={this.props.navigation}/>
+                    <Agenda profile={profil} name="Helmi Zulfikar" date={now} agenda={agenda} navigation={this.props.navigation}/>
+                    <Agenda profile={profil} name="Helmi Zulfikar" date={now} agenda={agenda} navigation={this.props.navigation}/>
+                    <Agenda profile={profil} name="Helmi Zulfikar" date={now} agenda={agenda} navigation={this.props.navigation}/>
                 </ScrollView>
             )
             :
             (
                 <ScrollView style={styles.ContentContainer}>
                     <GalangDana title="Bakti sosial anak yatim di Sawojajar" name="Helmi Zulfikar" time="5" total="2.700.000" target="3.000.000"/>
-                    <GalangDana title="Bakti sosial anak yatim di Sawojajar" name="Helmi Zulfikar" time="5" total="2.700.000" target="3.000.000"/>
-                    <GalangDana title="Bakti sosial anak yatim di Sawojajar" name="Helmi Zulfikar" time="5" total="2.700.000" target="3.000.000"/>
+                    <GalangDana title="Bakti sosial anak yatim di SMK Telkom Malang" name="Muhammad Ilham Fajar" time="5" total="2.300.000" target="4.500.000"/>
                 </ScrollView>
             )
             }
