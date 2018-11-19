@@ -63,7 +63,7 @@ export default class Agenda extends Component {
                           '',
                           [
                             {text: 'Cancel', onPress: () => {}, style: 'cancel'},
-                            {text: 'Join', onPress: () => {this.props.navigation.navigate('Home')}},
+                            {text: 'Join', onPress: () => {this.props.navigation.navigate('DetailAgenda')}},
                           ]
                         )
                       }}
