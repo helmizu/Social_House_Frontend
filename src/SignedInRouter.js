@@ -49,6 +49,18 @@ ThreadStack.navigationOptions = ({ navigation }) => {
   
     return navigationOptions;
 };
+
+HomeStack.navigationOptions = ({ navigation }) => {
+    let { routeName } = navigation.state.routes[navigation.state.index];
+    let navigationOptions = {};
+  
+    if (routeName === 'Dashboard') {
+      navigationOptions.tabBarVisible = false;
+    }
+  
+    return navigationOptions;
+};
+
 const SignedIn = createBottomTabNavigator(
     {
         Home: HomeStack,

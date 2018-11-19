@@ -76,7 +76,7 @@ class DetailAgenda extends Component {
             this.state.navigation === 'obrolan' ? 
             (
                 <ScrollView style={styles.ChatContainer}>
-                    <Chat profile={require('../../assets/images/adipati.png')} time={new Date().toLocaleTimeString()} name="Helmi Zulfikar S" message="langsung dateng aja ke tempat bro"/>
+                    <Chat profile={require('../../assets/images/adipati.png')} time={new Date().toLocaleTimeString()} name="Helmi Zulfikar" message="langsung dateng aja ke tempat bro"/>
                     <Chat profile={require('../../assets/images/robot-dev.png')} time={new Date().toLocaleTimeString()} name="Roboto Develope" message="oke bro ketemu disana"/>
                     <Chat profile={require('../../assets/images/robot-prod.png')} time={new Date().toLocaleTimeString()} name="Roboto Prodo" message="siaapppp"/>
                 </ScrollView>
