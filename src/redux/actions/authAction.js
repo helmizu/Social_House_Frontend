@@ -1,6 +1,8 @@
 import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_SUCCESS, GENDER_CHANGED, DATE_CHANGED, NAME_CHANGED, CONFIRM_CHANGED, USERNAME_CHANGED } from '../types';
 import axios from 'axios';
 
+const ip = '192.168.43.145'
+
 export const emailChanged = email => {
     return {
         type: EMAIL_CHANGED,
@@ -52,22 +54,24 @@ export const usernameChanged = username => {
 
 export const loginUser = (email, password, nav) => dispatch => {
     const dataUser = { email, password }
-    axios.post(`http://192.168.43.25:3000/users/login`, dataUser)
-        .then(res => {
-            dispatch({ type: LOGIN_SUCCESS, payload: res })
-            nav('AuthLoading')
-            console.log(res)
-        })
-        .catch(() => nav('AuthLoading'))
+    axios.post(`http://${ip}:3000/users/login`, dataUser)
+    .then(res => {
+        dispatch({ type: LOGIN_SUCCESS, payload: res })
+        nav('AuthLoading')
+        console.log(res)
+    })
+    .catch(() => {
+        nav('AuthLoading')
+    })
 };
 
 export const signupUser = (email, password, gender, date, name, confirm, username, nav) => dispatch => {
     const dataUser = { email, password, gender, date, name, confirm, username}
-    axios.post(`http://192.168.43.25:3000/users/register`, dataUser)
-        .then(res => {
-            dispatch({ type: LOGIN_SUCCESS, payload: res })
-            nav('Login')
-            console.log(res)
-        })
-        .catch(() => nav('Login'))
+    axios.post(`http://${ip}:3000/users/register`, dataUser)
+    .then(res => {
+        dispatch({ type: LOGIN_SUCCESS, payload: res })
+        nav('Login')
+        console.log(res)
+    })
+    .catch(() => nav('Login'))
 }
